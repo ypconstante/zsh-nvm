@@ -1,6 +1,7 @@
 ZSH_NVM_DIR=${0:a:h}
 
 [[ -z "$NVM_DIR" ]] && export NVM_DIR="$HOME/.nvm"
+[[ -z "$NVM_GIT" ]] && export NVM_GIT=https://github.com/creationix/nvm.git
 
 _zsh_nvm_rename_function() {
   test -n "$(declare -f $1)" || return
@@ -18,7 +19,7 @@ _zsh_nvm_latest_release_tag() {
 
 _zsh_nvm_install() {
   echo "Installing nvm..."
-  git clone https://github.com/creationix/nvm.git "$NVM_DIR"
+  git clone $NVM_GIT "$NVM_DIR"
   $(cd "$NVM_DIR" && git checkout --quiet "$(_zsh_nvm_latest_release_tag)")
 }
 

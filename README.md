@@ -73,6 +73,19 @@ antigen bundle lukechilds/zsh-nvm
 
 Note: If `nvm` doesn't exist in this directory it'll be automatically installed when you start a session.
 
+### Custom nvm
+
+You can specify a custom git repository to be used to download npm `nvm` by exporting the `NVM_GIT` environment variable. It must be set before `zsh-nvm` is loaded.
+
+For example, if you are using antigen, you would put the following in your `.zshrc`:
+
+```shell
+export NVM_GIT=https://github.com/creationix/nvm.git
+antigen bundle lukechilds/zsh-nvm
+```
+
+Note: If `nvm` doesn't exist in this directory it'll be automatically installed when you start a session.
+
 ### Lazy Loading
 
 If you find `nvm` adds too much lag to your shell startup you can enable lazy loading by exporting the `NVM_LAZY_LOAD` environment variable and setting it to `true`. It must be set before `zsh-nvm` is loaded.
